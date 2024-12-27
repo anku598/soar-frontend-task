@@ -4,7 +4,7 @@ import { Outlet } from 'react-router'
 
 export function DashboardLayout() {
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen">
       <Sidebar />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header />

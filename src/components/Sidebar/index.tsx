@@ -71,17 +71,18 @@ export function Sidebar() {
 
       <div
         className={cn(
-          'fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
+          'fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r border-[#E6EFF5] bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-        <div className="p-4 px-10">
-          <h1 className="text-2xl font-bold text-[#343C6A] capitalize">
+        <div className=" px-12 py-8 flex items-center gap-3">
+          <IconComp name="logo" className="h-6 w-6" color="#232323" />
+          <h1 className="text-2xl font-[800] text-[#343C6A] capitalize">
             Soar Task
           </h1>
         </div>
 
-        <nav className="flex-1 space-y-1 p-2">
+        <nav className="flex-1 space-y-1">
           {navigation.map((item) => {
             const isActive = location.pathname === item.href
             return (
@@ -90,8 +91,12 @@ export function Sidebar() {
                 to={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  'flex items-center gap-3 px-10 py-4 text-lg font-medium',
-                  isActive ? 'text-[#232323]' : 'text-[#B1B1B1]'
+                  'flex items-center gap-3 px-10 py-4 text-lg font-medium relative',
+                  'before:absolute before:left-0 before:top-0 before:h-full before:w-2 before:bg-[#232323]',
+                  'before:transition-transform before:duration-300 before:ease-in-out before:rounded-r-md',
+                  isActive
+                    ? 'text-[#232323] before:scale-y-100'
+                    : 'text-[#B1B1B1] before:scale-y-0'
                 )}
               >
                 <IconComp

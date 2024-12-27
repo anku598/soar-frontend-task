@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   :root {
     --background: 0 0% 100%;
@@ -66,6 +66,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#f5f7fa] text-foreground;
+  }
+
+  .font-heading-1 {
+    @apply text-[1.75rem] leading-[2rem] font-[600] text-[#343C6A] capitalize;
+  }
+
+  .font-heading-2 {
+    @apply text-[1.37rem] leading-[1.66rem] font-[600] text-[#343C6A] capitalize;
   }
 }
