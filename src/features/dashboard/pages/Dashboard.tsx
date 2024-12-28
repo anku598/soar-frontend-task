@@ -17,27 +17,37 @@ export function Dashboard() {
 
   return (
     <div className="grid gap-6 p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
         {/* {cards.map((card) => (
           <Card key={card.id} {...card} />
         ))} */}
 
         {weeklyActivity && weeklyActivity.length > 0 && (
-          <WeeklyActivity data={weeklyActivity} />
+          <div className="md:col-span-2 lg:col-span-2">
+            <WeeklyActivity data={weeklyActivity} />
+          </div>
         )}
 
-        {statistics && <ExpenseStatistics data={statistics} />}
+        {statistics && (
+          <div className="md:col-span-1 lg:col-span-1">
+            <ExpenseStatistics data={statistics} />
+          </div>
+        )}
+      </div>
 
-        <BalanceHistory
-          data={[
-            { month: 'Jan', balance: 400 },
-            { month: 'Feb', balance: 600 },
-            { month: 'Mar', balance: 500 },
-            { month: 'Apr', balance: 700 },
-            { month: 'May', balance: 400 },
-            { month: 'Jun', balance: 600 },
-          ]}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
+        <div className="md:col-span-2 lg:col-span-2">
+          <BalanceHistory
+            data={[
+              { month: 'Jan', balance: 400 },
+              { month: 'Feb', balance: 600 },
+              { month: 'Mar', balance: 500 },
+              { month: 'Apr', balance: 700 },
+              { month: 'May', balance: 400 },
+              { month: 'Jun', balance: 600 },
+            ]}
+          />
+        </div>
       </div>
     </div>
   )

@@ -22,13 +22,13 @@ const MOCK_DATA = {
     },
   ],
   '/api/statistics/weekly': [
+    { day: 'Sat', deposits: 400, withdrawals: 300 },
+    { day: 'Sun', deposits: 500, withdrawals: 400 },
     { day: 'Mon', deposits: 300, withdrawals: 400 },
     { day: 'Tue', deposits: 500, withdrawals: 300 },
     { day: 'Wed', deposits: 400, withdrawals: 500 },
     { day: 'Thu', deposits: 600, withdrawals: 400 },
     { day: 'Fri', deposits: 300, withdrawals: 600 },
-    { day: 'Sat', deposits: 400, withdrawals: 300 },
-    { day: 'Sun', deposits: 500, withdrawals: 400 },
   ],
   '/api/statistics/expenses': {
     entertainment: 30,
