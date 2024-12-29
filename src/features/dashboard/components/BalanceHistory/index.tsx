@@ -40,7 +40,7 @@ export function BalanceHistory({ data }: BalanceHistoryProps) {
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              vertical={false}
+              vertical={true}
               stroke="#E2E8F0"
             />
             <XAxis

@@ -1,5 +1,11 @@
 import { apiClient } from './client'
-import { Card, Statistics, Transaction, WeeklyActivity } from './types'
+import {
+  Card,
+  Statistics,
+  Transaction,
+  TransferUser,
+  WeeklyActivity,
+} from './types'
 
 export const cardApi = {
   getAll: async () => {
@@ -23,6 +29,15 @@ export const statisticsApi = {
 
   getWeeklyActivity: async () => {
     const response = await apiClient.get<WeeklyActivity[]>('/statistics/weekly')
+    return response.data
+  },
+}
+
+export const quickTransfer = {
+  getUsers: async () => {
+    const response = await apiClient.get<TransferUser[]>(
+      '/quick-transfer/users'
+    )
     return response.data
   },
 }

@@ -2,11 +2,18 @@ import { useDashboardStore } from '@/stores/dashboard'
 import { useEffect } from 'react'
 import { BalanceHistory } from '../components/BalanceHistory'
 import { ExpenseStatistics } from '../components/ExpenseStatistics'
+import { QuickTransfer } from '../components/QuickTransfer'
 import { WeeklyActivity } from '../components/WeeklyActivity'
 
 export function Dashboard() {
-  const { weeklyActivity, statistics, isLoading, error, fetchDashboardData } =
-    useDashboardStore()
+  const {
+    weeklyActivity,
+    statistics,
+    quickTransfer,
+    isLoading,
+    error,
+    fetchDashboardData,
+  } = useDashboardStore()
 
   useEffect(() => {
     fetchDashboardData()
@@ -36,6 +43,9 @@ export function Dashboard() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
+        <div className="md:col-span-1 lg:col-span-1">
+          <QuickTransfer users={quickTransfer.users} isLoading={isLoading} />
+        </div>
         <div className="md:col-span-2 lg:col-span-2">
           <BalanceHistory
             data={[

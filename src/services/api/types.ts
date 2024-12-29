@@ -28,3 +28,14 @@ export interface WeeklyActivity {
   deposits: number
   withdrawals: number
 }
+
+export interface TransferUser {
+  id: string
+  name: string
+  role: string
+  avatar: string
+}
+
+export interface QuickTransfer {
+  users: TransferUser[]
+}

@@ -1,10 +1,12 @@
 import {
   cardApi,
+  quickTransfer,
   statisticsApi,
   transactionApi,
 } from '@/services/api/endpoints'
 import {
   Card,
+  QuickTransfer,
   Statistics,
   Transaction,
   WeeklyActivity,
@@ -16,6 +18,7 @@ interface DashboardStore {
   transactions: Transaction[]
   statistics: Statistics | null
   weeklyActivity: WeeklyActivity[]
+  quickTransfer: QuickTransfer
   isLoading: boolean
   error: string | null
   fetchDashboardData: () => Promise<void>
@@ -26,23 +29,29 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
   transactions: [],
   statistics: null,
   weeklyActivity: [],
+  quickTransfer: {
+    users: [],
+  },
   isLoading: false,
   error: null,
   fetchDashboardData: async () => {
     set({ isLoading: true, error: null })
     try {
-      const [cards, transactions, stats, activity] = await Promise.all([
-        cardApi.getAll(),
-        transactionApi.getRecent(),
-        statisticsApi.getExpenseStats(),
-        statisticsApi.getWeeklyActivity(),
-      ])
+      const [cards, transactions, stats, activity, quickTransferUsers] =
+        await Promise.all([
+          cardApi.getAll(),
+          transactionApi.getRecent(),
+          statisticsApi.getExpenseStats(),
+          statisticsApi.getWeeklyActivity(),
+          quickTransfer.getUsers(),
+        ])
 
       set({
         cards,
         transactions,
         statistics: stats,
         weeklyActivity: activity,
+        quickTransfer: { users: quickTransferUsers },
         isLoading: false,
       })
     } catch (error) {

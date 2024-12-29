@@ -1,3 +1,9 @@
+import {
+  default as avatarOne,
+  default as avatarThree,
+} from '@/assets/img/avatar-1.png'
+import avatarTwo from '@/assets/img/avatar-2.png'
+
 const BASE_URL = '/api'
 
 // Mock data
@@ -36,6 +42,27 @@ const MOCK_DATA = {
     investment: 20,
     others: 35,
   },
+
+  '/api/quick-transfer/users': [
+    {
+      id: '1',
+      name: 'Livia Bator',
+      role: 'CEO',
+      avatar: avatarOne,
+    },
+    {
+      id: '2',
+      name: 'Randy Press',
+      role: 'Director',
+      avatar: avatarTwo,
+    },
+    {
+      id: '3',
+      name: 'Workman',
+      role: 'Designer',
+      avatar: avatarThree,
+    },
+  ],
 }
 
 // For development, just return mock data directly
