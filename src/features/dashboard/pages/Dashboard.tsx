@@ -1,6 +1,7 @@
 import { useDashboardStore } from '@/stores/dashboard'
 import { useEffect } from 'react'
 import { BalanceHistory } from '../components/BalanceHistory'
+import { CardInfo } from '../components/CardInfo'
 import { ExpenseStatistics } from '../components/ExpenseStatistics'
 import { QuickTransfer } from '../components/QuickTransfer'
 import { WeeklyActivity } from '../components/WeeklyActivity'
@@ -12,8 +13,11 @@ export function Dashboard() {
     quickTransfer,
     isLoading,
     error,
+    cards,
     fetchDashboardData,
   } = useDashboardStore()
+
+  console.log(cards)
 
   useEffect(() => {
     fetchDashboardData()
@@ -25,10 +29,20 @@ export function Dashboard() {
   return (
     <div className="grid gap-6 p-6">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-        {/* {cards.map((card) => (
-          <Card key={card.id} {...card} />
-        ))} */}
+        <div className="md:col-span-1 lg:col-span-2 ">
+          <h3 className="mb-4 font-heading-2">My Cards</h3>
+          <div className="flex gap-4 items-center">
+            {cards.map((card) => (
+              <CardInfo key={card.id} {...card} />
+            ))}
+          </div>
+        </div>
 
+        <div className="md:col-span-2 lg:col-span-1 ">
+          <h2 className="font-heading-2">Others</h2>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
         {weeklyActivity && weeklyActivity.length > 0 && (
           <div className="md:col-span-2 lg:col-span-2">
             <WeeklyActivity data={weeklyActivity} />

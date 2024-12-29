@@ -17,6 +17,14 @@ const MOCK_DATA = {
       expiryDate: '12/22',
       type: 'mastercard',
     },
+    {
+      id: '2',
+      cardNumber: '3888 **** **** 1234',
+      cardHolder: 'Eddy Cusuma',
+      balance: 5756,
+      expiryDate: '12/26',
+      type: 'mastercard',
+    },
   ],
   '/api/transactions/recent': [
     {
@@ -58,6 +66,24 @@ const MOCK_DATA = {
     },
     {
       id: '3',
+      name: 'Workman',
+      role: 'Designer',
+      avatar: avatarThree,
+    },
+    {
+      id: '4',
+      name: 'Workman',
+      role: 'Designer',
+      avatar: avatarThree,
+    },
+    {
+      id: '5',
+      name: 'Workman',
+      role: 'Designer',
+      avatar: avatarThree,
+    },
+    {
+      id: '6',
       name: 'Workman',
       role: 'Designer',
       avatar: avatarThree,
