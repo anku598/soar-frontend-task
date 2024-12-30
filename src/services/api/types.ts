@@ -9,6 +9,14 @@ export interface Card {
 
 export interface Transaction {
   id: string
+  type: 'deposit' | 'paypal' | 'transfer' | 'withdrawal'
+  amount: number
+  description: string
+  date: string
+}
+
+export interface Transaction {
+  id: string
   type: 'deposit' | 'withdrawal' | 'transfer'
   amount: number
   description: string
@@ -27,4 +35,15 @@ export interface WeeklyActivity {
   day: string
   deposits: number
   withdrawals: number
+}
+
+export interface TransferUser {
+  id: string
+  name: string
+  role: string
+  avatar: string
+}
+
+export interface QuickTransfer {
+  users: TransferUser[]
 }
