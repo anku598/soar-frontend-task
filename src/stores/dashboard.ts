@@ -1,8 +1,9 @@
 import {
-  cardApi,
-  quickTransfer,
-  statisticsApi,
-  transactionApi,
+  getCards,
+  getExpenseStatistics,
+  getRecentTransactions,
+  getTransferUsers,
+  getWeeklyActivity,
 } from '@/services/api/endpoints'
 import {
   Card,
@@ -39,11 +40,11 @@ export const useDashboardStore = create<DashboardStore>((set) => ({
     try {
       const [cards, transactions, stats, activity, quickTransferUsers] =
         await Promise.all([
-          cardApi.getAll(),
-          transactionApi.getRecent(),
-          statisticsApi.getExpenseStats(),
-          statisticsApi.getWeeklyActivity(),
-          quickTransfer.getUsers(),
+          getCards(),
+          getRecentTransactions(),
+          getExpenseStatistics(),
+          getWeeklyActivity(),
+          getTransferUsers(),
         ])
 
       set({

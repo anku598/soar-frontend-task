@@ -1,9 +1,12 @@
+import cardBg from '@/assets/img/credit-card-bg.jpg'
+import { Button } from '@/components/ui/button'
 import { useDashboardStore } from '@/stores/dashboard'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { BalanceHistory } from '../components/BalanceHistory'
 import { CardInfo } from '../components/CardInfo'
 import { ExpenseStatistics } from '../components/ExpenseStatistics'
 import { QuickTransfer } from '../components/QuickTransfer'
+import { RecentTransactions } from '../components/RecentTransactions'
 import { WeeklyActivity } from '../components/WeeklyActivity'
 
 export function Dashboard() {
@@ -14,14 +17,18 @@ export function Dashboard() {
     isLoading,
     error,
     cards,
+    transactions,
     fetchDashboardData,
   } = useDashboardStore()
 
-  console.log(cards)
-
-  useEffect(() => {
+  // Memoize fetchDashboardData to prevent infinite re-renders
+  const fetchData = useCallback(() => {
     fetchDashboardData()
   }, [fetchDashboardData])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error: {error}</div>
@@ -30,16 +37,32 @@ export function Dashboard() {
     <div className="grid gap-6 p-6">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
         <div className="md:col-span-1 lg:col-span-2 ">
+          <div className='flex items-center justify-between'>
           <h3 className="mb-4 font-heading-2">My Cards</h3>
+          <Button variant={'link'} className='text-[#343C6A] text-[17px] font-[600] capitalize :hover no-underline'>
+                see all
+          </Button>
+          </div>
           <div className="flex gap-4 items-center">
-            {cards.map((card) => (
-              <CardInfo key={card.id} {...card} />
+            {cards.map((card,index) => (
+              <CardInfo 
+              key={card.id} 
+              {...card} 
+              isFirstCard={index === 0}
+              style={index === 0 ? {
+                backgroundImage: `url(${cardBg})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              } : undefined}
+            />
             ))}
           </div>
+
+        
         </div>
 
-        <div className="md:col-span-2 lg:col-span-1 ">
-          <h2 className="font-heading-2">Others</h2>
+        <div className="md:col-span-2 lg:col-span-1">
+          <RecentTransactions transactions={transactions} />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">

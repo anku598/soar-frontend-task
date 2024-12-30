@@ -5,7 +5,7 @@ interface ExpenseStatisticsProps {
   data: Statistics
 }
 
-const EXPENSE_COLORS = {
+const EXPENSE_COLORS : { [key: string]: string }  = {
   entertainment: '#343C6A',
   billExpense: '#FC7900',
   investment: '#396AFF',

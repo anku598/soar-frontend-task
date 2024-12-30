@@ -1,13 +1,13 @@
 import {
   default as avatarOne,
   default as avatarThree,
-} from '@/assets/img/avatar-1.png'
-import avatarTwo from '@/assets/img/avatar-2.png'
+} from '@/assets/img/avatar-1.png';
+import avatarTwo from '@/assets/img/avatar-2.png';
 
 const BASE_URL = '/api'
 
 // Mock data
-const MOCK_DATA = {
+const MOCK_DATA:  { [key: string]: any } = {
   '/api/cards': [
     {
       id: '1',
@@ -34,6 +34,20 @@ const MOCK_DATA = {
       description: 'Deposit from my Card',
       date: '28 January 2021',
     },
+    {
+      id: '2',
+      type: 'paypal',
+      amount: 2500,
+      description: 'Deposit Paypal',
+      date: '25 January 2021',
+    },
+    {
+      id: '3',
+      type: 'transfer',
+      amount: 5400,
+      description: 'Jemi Wilson',
+      date: '21 January 2021',
+    },
   ],
   '/api/statistics/weekly': [
     { day: 'Sat', deposits: 400, withdrawals: 300 },
@@ -51,7 +65,7 @@ const MOCK_DATA = {
     others: 35,
   },
 
-  '/api/quick-transfer/users': [
+  '/api/transfer/users': [
     {
       id: '1',
       name: 'Livia Bator',
@@ -91,10 +105,19 @@ const MOCK_DATA = {
   ],
 }
 
+interface ApiResponse<T> {
+  data: T;
+}
+
+interface ApiClient {
+  get<T>(path: string): Promise<ApiResponse<T>>;
+}
+
+
 // For development, just return mock data directly
-export const apiClient = {
-  get: async (url: string) => {
-    // Remove the base URL if it's included
+export const apiClient : ApiClient = {
+  get: async <T>(url: string):Promise<ApiResponse<T>> => {
+    
     const path = url.startsWith(BASE_URL) ? url : `${BASE_URL}${url}`
     const mockResponse = MOCK_DATA[path]
 
