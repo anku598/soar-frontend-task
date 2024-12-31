@@ -5,7 +5,7 @@ interface ExpenseStatisticsProps {
   data: Statistics
 }
 
-const EXPENSE_COLORS : { [key: string]: string }  = {
+const EXPENSE_COLORS: { [key: string]: string } = {
   entertainment: '#343C6A',
   billExpense: '#FC7900',
   investment: '#396AFF',
@@ -27,7 +27,7 @@ export function ExpenseStatistics({ data }: ExpenseStatisticsProps) {
   return (
     <div>
       <h3 className="mb-4 font-heading-2">Expense Statistics</h3>
-      <div className="h-[345px] rounded-[25px] bg-white p-4">
+      <div className="h-[345px] rounded-[25px] bg-white sm:p-4">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie

@@ -9,14 +9,6 @@ export interface Card {
 
 export interface Transaction {
   id: string
-  type: 'deposit' | 'paypal' | 'transfer' | 'withdrawal'
-  amount: number
-  description: string
-  date: string
-}
-
-export interface Transaction {
-  id: string
   type: 'deposit' | 'withdrawal' | 'transfer'
   amount: number
   description: string

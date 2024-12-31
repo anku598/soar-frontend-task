@@ -74,6 +74,6 @@
   }
 
   .font-heading-2 {
-    @apply text-[1.37rem] leading-[1.66rem] font-[600] text-[#343C6A] capitalize;
+    @apply text-[1rem] sm:text-[1.37rem] leading-[1.66rem] font-[600] text-[#343C6A] capitalize;
   }
 }

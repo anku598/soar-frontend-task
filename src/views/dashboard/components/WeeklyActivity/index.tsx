@@ -17,7 +17,7 @@ export function WeeklyActivity({ data }: WeeklyActivityProps) {
   return (
     <div>
       <h3 className="mb-4 font-heading-2">Weekly Activity</h3>
-      <div className="h-[345px] rounded-[25px] bg-white p-4">
+      <div className="h-[300px] sm:h-[345px] rounded-[25px] bg-white sm:p-4">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} barGap={12}>
             <Legend
@@ -31,7 +31,7 @@ export function WeeklyActivity({ data }: WeeklyActivityProps) {
                 <span
                   style={{
                     color: '#718EBF',
-                    fontSize: '15px',
+                    fontSize: window.innerWidth <= 768 ? '12px' : '15px',
                     fontFamily: 'Inter',
                     marginRight: '10px',
                     textTransform: 'capitalize',
@@ -40,6 +40,7 @@ export function WeeklyActivity({ data }: WeeklyActivityProps) {
                   {value}
                 </span>
               )}
+              iconSize={window.innerWidth <= 768 ? 12 : 15}
               iconType="circle"
             />
             <CartesianGrid vertical={false} stroke="#F3F3F5" strokeWidth={1} />

@@ -9,7 +9,6 @@ import { QuickTransfer } from '../components/QuickTransfer'
 import { RecentTransactions } from '../components/RecentTransactions'
 import { WeeklyActivity } from '../components/WeeklyActivity'
 
-
 export function Dashboard() {
   const {
     weeklyActivity,
@@ -22,7 +21,6 @@ export function Dashboard() {
     fetchDashboardData,
   } = useDashboardStore()
 
-  // Memoize fetchDashboardData to prevent infinite re-renders
   const fetchData = useCallback(() => {
     fetchDashboardData()
   }, [fetchDashboardData])
@@ -38,28 +36,34 @@ export function Dashboard() {
     <div className="grid gap-6 px-[40px] py-[24px] bg-white sm:bg-transparent">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
         <div className="md:col-span-1 lg:col-span-2 ">
-          <div className='flex items-center justify-between mb-4'>
-          <h3 className=" font-heading-2">My Cards</h3>
-          <Button variant={'link'} className='text-[#343C6A] p-0 text-[17px] font-[600] capitalize :hover no-underline'>
-                see all
-          </Button>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-heading-2">My Cards</h3>
+            <Button
+              variant={'link'}
+              className="text-[#343C6A] p-0 text-sm md:text-base lg:text-[17px] font-[600] capitalize :hover no-underline"
+            >
+              see all
+            </Button>
           </div>
-          <div className="flex gap-[40px] items-center flex-nowrap w-[85vw]">
-            {cards.map((card,index) => (
-              <CardInfo 
-              key={card.id} 
-              {...card} 
-              isFirstCard={index === 0}
-              style={index === 0 ? {
-                backgroundImage: `url(${cardBg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              } : undefined}
-            />
+          <div className="flex gap-[40px] items-center overflow-x-auto sm:overflow-visible pb-4 -mx-[40px] px-[40px] md:mx-0 md:px-0">
+            {cards.map((card, index) => (
+              <CardInfo
+                key={card.id}
+                {...card}
+                isFirstCard={index === 0}
+                className="min-w-[300px] md:min-w-0"
+                style={
+                  index === 0
+                    ? {
+                        backgroundImage: `url(${cardBg})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                      }
+                    : undefined
+                }
+              />
             ))}
           </div>
-
-        
         </div>
 
         <div className="md:col-span-2 lg:col-span-1">
@@ -80,11 +84,11 @@ export function Dashboard() {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-        <div className="md:col-span-1 lg:col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 gap-10">
+        <div className="md:col-span-2 lg:col-span-2">
           <QuickTransfer users={quickTransfer.users} isLoading={isLoading} />
         </div>
-        <div className="md:col-span-2 lg:col-span-2">
+        <div className="col-span-1 md:col-span-3 lg:col-span-3">
           <BalanceHistory
             data={[
               { month: 'Jan', balance: 400 },
