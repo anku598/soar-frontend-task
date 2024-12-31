@@ -21,7 +21,7 @@ export function BalanceHistory({ data }: BalanceHistoryProps) {
   return (
     <div>
       <h3 className="mb-4 font-heading-2">Balance History</h3>
-      <div className="h-[345px] rounded-[25px] bg-white p-4">
+      <div className="h-[275px] rounded-[25px] bg-white p-4">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={data}

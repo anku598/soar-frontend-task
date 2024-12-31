@@ -1,3 +1,4 @@
+import { SendIcon } from '@/components/icons/icons/send'
 import { Avatar } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 
@@ -5,10 +6,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  CarouselNext
 } from '@/components/ui/carousel'
 import { Input } from '@/components/ui/input'
+import { ChevronRight } from 'lucide-react'
 
 interface TransferUser {
   id: string
@@ -34,7 +35,7 @@ export function QuickTransfer({ users, isLoading }: QuickTransferProps) {
         }}
         className="w-full relative"
       >
-        <div className="h-[345px] flex flex-col overflow-x-hidden items-center justify-center rounded-[25px] bg-white p-6">
+        <div className="min-h-[275px] flex flex-col overflow-x-hidden items-center justify-center rounded-[25px] bg-white p-6">
           <div className=" w-full mb-6 pb-2">
             <CarouselContent className="-ml-1">
               {users.map((user) => (
@@ -60,8 +61,10 @@ export function QuickTransfer({ users, isLoading }: QuickTransferProps) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+          
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 shadow-[4px_4px_18px_-2px_#E7E4E8CC]">
+              <ChevronRight className="h-10 w-25" />
+            </CarouselNext>
           </div>
 
           <div className=" flex items-center gap-6">
@@ -76,7 +79,7 @@ export function QuickTransfer({ users, isLoading }: QuickTransferProps) {
                 className="absolute rounded-full mt-0 top-[50%] translate-y-[-50%] h-[50px] right-0"
                 size="lg"
               >
-                Send <span className="ml-2">→</span>
+                Send <SendIcon/>
               </Button>
             </div>
           </div>

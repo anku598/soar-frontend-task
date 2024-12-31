@@ -9,6 +9,7 @@ import { QuickTransfer } from '../components/QuickTransfer'
 import { RecentTransactions } from '../components/RecentTransactions'
 import { WeeklyActivity } from '../components/WeeklyActivity'
 
+
 export function Dashboard() {
   const {
     weeklyActivity,
@@ -34,16 +35,16 @@ export function Dashboard() {
   if (error) return <div>Error: {error}</div>
 
   return (
-    <div className="grid gap-6 p-6">
+    <div className="grid gap-6 px-[40px] py-[24px] bg-white sm:bg-transparent">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
         <div className="md:col-span-1 lg:col-span-2 ">
-          <div className='flex items-center justify-between'>
-          <h3 className="mb-4 font-heading-2">My Cards</h3>
-          <Button variant={'link'} className='text-[#343C6A] text-[17px] font-[600] capitalize :hover no-underline'>
+          <div className='flex items-center justify-between mb-4'>
+          <h3 className=" font-heading-2">My Cards</h3>
+          <Button variant={'link'} className='text-[#343C6A] p-0 text-[17px] font-[600] capitalize :hover no-underline'>
                 see all
           </Button>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-[40px] items-center flex-nowrap w-[85vw]">
             {cards.map((card,index) => (
               <CardInfo 
               key={card.id} 

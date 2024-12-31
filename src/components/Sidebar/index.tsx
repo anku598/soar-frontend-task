@@ -71,13 +71,13 @@ export function Sidebar() {
 
       <div
         className={cn(
-          'fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r border-[#E6EFF5] bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
+          'fixed inset-y-0 left-0 z-40 flex h-full flex-col border-r border-[#E6EFF5] bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         <div className=" px-12 py-8 flex items-center gap-3">
           <IconComp name="logo" className="h-6 w-6" color="#232323" />
-          <h1 className="text-2xl font-[800] text-[#343C6A] capitalize">
+          <h1 className="text-[25px] font-[800] text-[#343C6A] capitalize">
             Soar Task
           </h1>
         </div>

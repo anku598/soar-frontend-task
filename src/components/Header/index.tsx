@@ -19,38 +19,55 @@ export function Header() {
   const currentTitle = pageTitles[location.pathname] || 'Overview'
 
   return (
-    <div className="flex items-center justify-between px-10 py-5 bg-white border-b border-[#E6EFF5]">
-      <h1 className="font-heading-1">{currentTitle}</h1>
-
-      <div className="flex items-center gap-[30px]">
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="Search for something"
-            className="pl-12 pr-4  py-4 bg-[#F5F7FA] border-none rounded-[2.5rem] focus:ring-0 focus:ring-gray-200 focus:outline-none w-[280px] text-[0.98rem] text-[#8BA3CB] placeholder-[#8BA3CB]"
-          />
-          <IconComp
-            name="search"
-            className=" text-gray-400 absolute left-5 top-1/2 transform -translate-y-1/2"
-          />
+    <div className="flex flex-col bg-white border-b-[0] sm:border-b border-[#E6EFF5]">
+      <div className="flex items-center justify-between px-4 sm:px-[40px] py-4 sm:py-5">
+      <div className="flex-1 flex justify-center sm:justify-start">
+          <h1 className="font-heading-1 text-[20px] sm:font-heading-1">{currentTitle}</h1>
         </div>
 
-        <button className="p-2 hover:bg-gray-50 rounded-full">
-          <IconComp name="header-settings-gear" className=" text-gray-600" />
-        </button>
 
-        <button className="p-2 hover:bg-gray-50 rounded-full">
-          <IconComp name="notification" className=" " />
-        </button>
+        <div className="flex items-center  gap-4 sm:gap-[30px]">
+          <div className="relative hidden sm:block">
+            <input
+              type="text"
+              placeholder="Search for something"
+              className="pl-12 pr-4 py-4 bg-[#F5F7FA] border-none rounded-[2.5rem] focus:ring-0 focus:ring-gray-200 focus:outline-none w-[280px] text-[0.98rem] text-[#8BA3CB] placeholder-[#8BA3CB]"
+            />
+            <IconComp
+              name="search"
+              className="text-gray-400 absolute left-5 top-1/2 transform -translate-y-1/2"
+            />
+          </div>
 
-        <div className="w-10 h-10 rounded-full overflow-hidden cursor-pointer">
-          <img
-            src={Avatar}
-            alt="User avatar"
-            className="w-full h-full object-cover"
-          />
+          <button className="hidden sm:block p-2 hover:bg-gray-50 rounded-full">
+            <IconComp name="header-settings-gear" className="text-gray-600" />
+          </button>
+
+          <button className="hidden sm:block p-2 hover:bg-gray-50 rounded-full">
+            <IconComp name="notification" />
+          </button>
+
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden cursor-pointer">
+            <img
+              src={Avatar}
+              alt="User avatar"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
+
+      <div className="relative w-full px-4 sm:hidden ">
+            <input
+              type="text"
+              placeholder="Search for something"
+              className="pl-12 pr-4 w-full py-4 bg-[#F5F7FA] border-none rounded-[2.5rem] focus:ring-0 focus:ring-gray-200 focus:outline-none text-[0.98rem] text-[#8BA3CB] placeholder-[#8BA3CB]"
+            />
+            <IconComp
+              name="search"
+              className="text-gray-400 absolute left-8 top-1/2 transform -translate-y-1/2"
+            />
+          </div>
     </div>
   )
 }

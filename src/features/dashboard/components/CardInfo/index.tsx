@@ -1,3 +1,7 @@
+import chipCardBlack from '@/assets/Chip_Card-for-black-shade.svg';
+import chipCardWhite from '@/assets/Chip_Card-for-white.svg';
+import masterCardLogoBlack from '@/assets/master-card-logo-black.svg';
+import masterCardLogoWhite from '@/assets/master-card-logo-white.svg';
 import { Card } from '@/services/api/types';
 import { formatCurrency } from '@/utils/formatters';
 
@@ -12,7 +16,6 @@ export function CardInfo({
   cardHolder,
   balance,
   expiryDate,
-  type,
   style,
   isFirstCard,
 }: CardInfoProps) {
@@ -23,9 +26,10 @@ export function CardInfo({
   : 'border-t border-gray-200'
 
   return (
-    <div   className={`rounded-[25px]  shadow-sm w-full ${!style ? 'bg-white' : ''}`}
+    <div   className={`rounded-[25px] shadow-sm w-full ${!style ? 'bg-white' : ''}`}
     style={style}>
-      <div className="flex justify-between items-start p-6 mb-4">
+
+      <div className="flex justify-between items-start p-6 pb-0">
         <div className="space-y-1">
         <p className={`text-sm ${textColorClass}`}>Balance</p>
           <p className={`text-xl font-semibold ${headingColorClass}`}>
@@ -34,8 +38,8 @@ export function CardInfo({
         </div>
 
         <img
-          src={`/icons/${type}.svg`}
-          alt={type}
+          src={isFirstCard ? chipCardBlack : chipCardWhite}
+          alt={isFirstCard ? 'chip card black' : 'chip card white'}
           className="w-12 h-8 object-contain"
         />
       </div>
@@ -53,10 +57,16 @@ export function CardInfo({
           <p className={`font-medium ${headingColorClass}`}>{expiryDate}</p>
           </div>
         </div>
+        
       </div>
 
-      <div className={cardNumberContainerClass}>
-          <p className={`font-mono text-lg p-6 ${headingColorClass}`}>{cardNumber}</p>
+      <div className={`flex justify-between items-center p-6 ${cardNumberContainerClass}`}>
+          <p className={`text-[22px] font-[600]  ${headingColorClass}`}>{cardNumber}</p>
+          <img
+          src={isFirstCard ?  masterCardLogoWhite : masterCardLogoBlack}
+          alt={isFirstCard ? 'master card logo black' : 'master card logo white'}
+          className="w-12 h-8 object-contain"
+        />
         </div>
     </div>
   )
