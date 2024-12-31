@@ -71,13 +71,13 @@ export function Sidebar() {
 
       <div
         className={cn(
-          'fixed inset-y-0 left-0 z-40 flex h-full w-64 flex-col border-r border-[#E6EFF5] bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
+          'fixed inset-y-0 left-0 z-40 flex h-full flex-col border-r border-[#E6EFF5] bg-white transition-transform duration-300 ease-in-out md:relative md:translate-x-0',
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
         <div className=" px-12 py-8 flex items-center gap-3">
           <IconComp name="logo" className="h-6 w-6" color="#232323" />
-          <h1 className="text-2xl font-[800] text-[#343C6A] capitalize">
+          <h1 className="text-[18px] sm:text-[25px] font-[800] text-[#343C6A] capitalize">
             Soar Task
           </h1>
         </div>
@@ -91,7 +91,7 @@ export function Sidebar() {
                 to={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
-                  'flex items-center gap-3 px-10 py-4 text-lg font-medium relative',
+                  'flex items-center gap-3 px-10 py-2 sm:py-4 text-sm sm:text-lg font-medium relative',
                   'before:absolute before:left-0 before:top-0 before:h-full before:w-2 before:bg-[#232323]',
                   'before:transition-transform before:duration-300 before:ease-in-out before:rounded-r-md',
                   isActive
@@ -101,7 +101,7 @@ export function Sidebar() {
               >
                 <IconComp
                   name={item.icon as IconName}
-                  className="h-5 w-5"
+                  className="h-4 w-4 sm:h-5 sm:w-5"
                   color={isActive ? '#232323' : '#B1B1B1'}
                 />
                 {item.name}

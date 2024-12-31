@@ -29,7 +29,7 @@ const MOCK_DATA:  { [key: string]: any } = {
   '/api/transactions/recent': [
     {
       id: '1',
-      type: 'deposit',
+      type: 'withdrawal',
       amount: 850,
       description: 'Deposit from my Card',
       date: '28 January 2021',

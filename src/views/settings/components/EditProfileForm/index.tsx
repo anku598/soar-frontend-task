@@ -1,4 +1,4 @@
-import Avatar from '@/assets/img/user-pic.jpg'
+import Avatar from '@/assets/img/profile-picture.jpg'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -95,8 +95,7 @@ export function EditProfileForm() {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8">
-          {/* Profile Picture Column */}
-          <div className="space-y-4">
+          <div className="flex sm:flex-col justify-center sm:justify-start">
             <div className="relative w-fit">
               <div className="w-24 h-24 rounded-full overflow-hidden">
                 <img
@@ -108,7 +107,7 @@ export function EditProfileForm() {
               <button
                 type="button"
                 onClick={handleImageClick}
-                className="absolute bottom-0 right-0 p-1 rounded-full bg-primary hover:bg-primary/90 text-white"
+                className="absolute bottom-0 right-0 p-2 rounded-full bg-primary hover:bg-primary/90 text-white"
               >
                 <PencilIcon className="h-4 w-4" />
               </button>
@@ -123,17 +122,20 @@ export function EditProfileForm() {
           </div>
 
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
               <FormField
                 control={form.control}
                 name="yourName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Your Name
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -145,11 +147,14 @@ export function EditProfileForm() {
                 name="userName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className=" text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       User Name
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -161,11 +166,15 @@ export function EditProfileForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Email
                     </FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} />
+                      <Input
+                        type="email"
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -177,11 +186,15 @@ export function EditProfileForm() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Password
                     </FormLabel>
                     <FormControl>
-                      <Input type="password" {...field} />
+                      <Input
+                        type="password"
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -193,11 +206,14 @@ export function EditProfileForm() {
                 name="dateOfBirth"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Date of Birth
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -209,11 +225,14 @@ export function EditProfileForm() {
                 name="presentAddress"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Present Address
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -225,11 +244,14 @@ export function EditProfileForm() {
                 name="permanentAddress"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Permanent Address
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -241,11 +263,14 @@ export function EditProfileForm() {
                 name="city"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       City
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -257,11 +282,14 @@ export function EditProfileForm() {
                 name="postalCode"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Postal Code
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -273,11 +301,14 @@ export function EditProfileForm() {
                 name="country"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-[16px] text-[#232323] font-[400]">
+                    <FormLabel className="text-[13px] sm:text-[16px] text-[#232323] font-[400]">
                       Country
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} />
+                      <Input
+                        {...field}
+                        className="text-[12px] sm:text-[16px]"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -293,8 +324,13 @@ export function EditProfileForm() {
           </div>
         )}
 
-        <div className="flex justify-end">
-          <Button size="xl" type="submit" disabled={isLoading}>
+        <div className="flex sm:justify-end">
+          <Button
+            size="xl"
+            className="w-full sm:w-auto"
+            type="submit"
+            disabled={isLoading}
+          >
             {isLoading ? 'Saving...' : 'Save'}
           </Button>
         </div>

@@ -1,6 +1,6 @@
-import { Dashboard } from '@/features/dashboard/pages/Dashboard'
-import { Settings } from '@/features/settings/pages/Settings'
 import { DashboardLayout } from '@/layouts/DashboardLayout'
+import { Dashboard } from '@/views/dashboard/pages/Dashboard'
+import { Settings } from '@/views/settings/pages/Settings'
 import { useEffect, useState } from 'react'
 import { Route, BrowserRouter as Router, Routes } from 'react-router'
 
